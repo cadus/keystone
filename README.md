@@ -6,7 +6,7 @@
 
 ## `.git/config`
 
-Makes merging PRs easier, e.g.: `git merge refs/pull/upstream/1234`
+Makes merging PRs easier, e.g.: `git merge refs/pull/upstream/1234` ([source](https://news.ycombinator.com/item?id=9051220)).
 
 ```ini
 [core]
