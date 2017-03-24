@@ -15,15 +15,15 @@ import {
 import FileChangeMessage from '../../components/FileChangeMessage';
 import HiddenFileInput from '../../components/HiddenFileInput';
 
-const FileThumb = ({ url }) => {
-	const isPicture = url && url.match(/\.(jpeg|jpg|gif|png)$/i) != null;
+const FileThumb = ({ filename }) => {
+	const isPicture = filename && filename.match(/\.(jpeg|jpg|gif|png)$/i) != null;
 	if (!isPicture) {
 		// TODO generic icons
 		return false;
 	}
 	return (
 		<div style={{ width: 150, marginRight: 10, flexShrink: 0 }}>
-			<img style={{ width: '100%', height: '100%' }} src={url}/>
+			<img style={{ width: '100%', height: '100%' }} src={`/uploads/${filename}`}/>
 		</div>
 	);
 };
@@ -31,7 +31,7 @@ const FileThumb = ({ url }) => {
 const FileDom = ({ url, filename }) => {
 	return (
 		<div style={{ display: 'flex' }}>
-			<FileThumb {...{ url }}/>
+			<FileThumb {...{ filename }}/>
 			<div style={{
 				display: 'flex',
 				flexDirection: 'column',
@@ -41,11 +41,7 @@ const FileDom = ({ url, filename }) => {
 				width: '100%',
 			}}>
 				<FileChangeMessage>
-					{url ? (
-						<a href={url}>{filename}</a>
-					) : (
-						filename
-					)}
+					<a href={`/uploads/${filename}`}>{filename}</a>
 				</FileChangeMessage>
 				{url && (
 					<span style={{ fontSize: 10 }}>
