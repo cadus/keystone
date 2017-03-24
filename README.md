@@ -26,7 +26,4 @@ Makes merging PRs easier, e.g.: `git merge refs/pull/upstream/1234`
 	url = https://github.com/keystonejs/keystone.git
 	fetch = +refs/heads/*:refs/remotes/upstream/*
 	fetch = +refs/pull/*/head:refs/pull/upstream/*
-[branch "thumbnails"]
-	remote = upstream
-	merge = refs/pull/3397/head
 ```
